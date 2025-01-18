@@ -1,3 +1,2 @@
-# WebGuide
-
-<h1>WebGuide</h1>
+<h1 align="center">WebGuide</h1>
+<p>Задавайте вопросы,<br> делитесь историями с другими<br>и публикуйте посты вместе с WebGuide</p>
