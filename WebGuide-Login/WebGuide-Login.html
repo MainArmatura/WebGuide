@@ -1,0 +1,198 @@
+﻿<html>
+<head>
+<title>Web-Guide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Logo.png" type="image/x-icon">
+</head>
+<body>
+    <style>
+        .inputUser {
+            display: block;
+            margin: 75px auto 0 auto;
+            border-radius: 100px;
+            width: 150px;
+            height: 30px;
+            border: none;
+position: center;
+  transition: background-color 0.4s, box-shadow 0.2s 0.3s, color 0.2s;
+      -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.inputUser:hover {
+        background-color: #101529;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #101529;
+    color: #FFFFFF;
+}
+
+body {
+  background-image: url("BackgroundLogo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+}
+.Login {
+  border: none;
+  border-width: thick;
+  border-radius: 0px 0px 100px 100px;
+  background-color: ghostwhite;
+    -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  opacity: 0.5;
+  transform: translateY(-10px);
+}
+.inputPassword {
+width: auto;
+height: auto;
+position: center;
+display: block;
+margin: 0 auto;
+border-radius: 100px;
+border: none;
+width: 150px;
+height: 30px;
+transition: background-color 0.4s, box-shadow 0.2s 0.3s, color 0.2s;
+    -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.inputPassword:hover {
+        background-color: #101529;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #101529;
+    color: #FFFFFF;
+}
+.LoginButton {
+    display: block;
+    margin: 20px auto 0px auto;
+    width: 50px;
+    height: 20px;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 10px;
+    transition: background-color 0.4s, box-shadow 0.2s 0.3s, color 0.2s;
+        -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.LoginButton:hover {
+    background-color: #101529;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #101529;
+    color: #FFFFFF;
+}
+::-webkit-input-placeholder {
+text-align:center;
+}
+div#square {
+border-radius: 100px;
+background-color: black;
+width: 400px;
+height: 600px;
+opacity: 0.5;
+margin: 200px auto;
+
+}
+.WebGuideText {
+    color: whitesmoke;
+    text-align: center;
+    scale: 25px;
+    font: sans-serif;
+        -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.LogoLogin {
+    width: 100px;
+    height: 100px;
+    transform: translateX(150px);
+    margin: 50px auto 0px auto;
+        -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.RegisterText {
+    margin: 30px auto;
+    color: whitesmoke;
+    display: block;
+    font: sans-serif 3px;
+        -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.CreateAccount {
+    border: none;
+    border-radius: 100px;
+    font: sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    width: 60px;
+    height: 20px;
+    margin: 5px auto;
+    text-align: center;
+    display: block;
+    transition: background-color 0.4s, box-shadow 0.2s 0.3s, color 0.2s;
+        -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.CreateAccount:hover {
+    background-color: #101529;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #101529;
+    color: #FFFFFF;
+}
+    </style>
+    <legend>
+        <nav>
+<h1 align="center" class="login">LOGIN</h1>
+<div id="square">
+    <img src="Logo.png" class="LogoLogin">
+    <h1 class="WebGuideText">WebGuide</h1>
+<input type="WriteBox" name="Login" required class="inputUser" placeholder="Username" style="text-align: center;">
+<br>
+<br>
+<input type="password" name="Password" required class="inputPassword" placeholder="Password" style="text-align: center;">
+   <input type="submit" name="LoginEnd" value="Login" class="LoginButton">
+   <br>
+   <p align="center" class="RegisterText">Нету аккаунта? Создайте его:</p>
+   <button class="CreateAccount" onclick="window.location='file:///C:/Users/user/Desktop/WebGuide/WebGuide-Register/WebGuide-Register.html'">Create</button>
+</div>
+</legend>
+<script>
+    const signupForm = document.getElementById('signupForm');
+    signupForm.submit('file:///C:/Users/user/Desktop/WebGuide/WebGuide-Register/WebGuide-Register.html')
+        let username = document.getElementById('username').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let confirmPassword = document.getElementById('confirmPassword').value;
+        if (username !== document.getElementById('username')) {
+            messenge.textcontent = 'Аккаунт существует'
+        }
+        if (password + username !== document.getElementById('password' + 'username')) {
+            window.location="file:///C:/Users/user/Desktop/WebGuide/WebGuide-Main/WebGuide-Main.html"
+        }
+
+
+</script>
+</body>
+</html>

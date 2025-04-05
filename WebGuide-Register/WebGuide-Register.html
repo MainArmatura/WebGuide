@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="icon" href="Logo.png" type="image/x-icon">
+	<title>Регистрация</title>
+</head>
+<body>
+	<style>
+		body {
+  background-image: url("BackgroundLogo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+		}
+		div#BorderUp {
+			width: auto;
+			height: 30px;
+			background-color: black;
+			opacity: 0.5;
+			border-radius: 0 0 100px 100px;
+			display: block;
+			margin: auto auto 100px auto;
+			transform: translateY(-10px);
+		}
+		div#Register {
+			width: 400px;
+			height: 700px;
+			border-radius: 100px;
+			background-color: black;
+			border: none;
+			opacity: 0.5;
+			margin: 200px auto;
+			display: block;
+			display: block;
+		}
+		.LogoRegister {
+			margin: 30px auto;
+			display: block;
+		}
+		.WebGuideH1 {
+			text-align: center;
+			color: whitesmoke;
+			transform: translateY(-10px);
+			    -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+		}
+		.RegisterText {
+			text-align: center;
+			color: whitesmoke;
+			transform: translateY(-10px);
+			    -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+		}
+		.LoginInput {
+			text-align: center;
+			width: 150px;
+			height: 30px;
+			border-radius: 100px;
+			border: none;
+			position: center;
+			margin: 30px auto;
+			display: block;
+		}
+		.RegisterButton {
+			width: 100px;
+			height: 30px;
+			border-radius: 100px;
+			margin: 30px auto;
+			display: block;
+			border: none;
+			box-shadow: 10px;
+			display: block;
+			transform: translateY(px);
+
+		}
+		.LogoRegister {
+			transform: translateY(30px);
+			margin: 0px auto 75px auto;
+		}
+		.CheckPassword {
+						text-align: center;
+			width: 150px;
+			height: 30px;
+			border-radius: 100px;
+			border: none;
+			position: center;
+			margin: 30px auto;
+			display: block;
+
+		}
+		.HaveAccount {
+    margin: 30px auto;
+    color: whitesmoke;
+    display: block;
+    font: sans-serif 3px;
+		}
+
+		.LoginButton {
+    display: block;
+    margin: 20px auto 0px auto;
+    width: 50px;
+    height: 20px;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 10px;
+}
+
+	</style>
+	<div id="BorderUp">
+	</div>
+	<div align="center" id="Register">
+		<img src="Logo.png" class="LogoRegister" height="100px" width="100px">
+		<h1 align="center" class="WebGuideH1">WebGuide</h1>
+		<form>
+		<h3 align="center" class="RegisterText">Регистрация</h3>
+		<input type="WriteBox" name="Login" placeholder="Login" class="LoginInput" id="username" required>
+		<input type="Email" name="Email" placeholder="E-mail" class="LoginInput" id="email" required>
+		<input type="Password" name="Password" placeholder="Password" class="LoginInput" id="password" required>
+		       <span id="passwordError" class="error"></span>
+                <div class="password-strength" id="passwordStrength"></div>
+                            <div class="form-group">
+                <input type="password" id="confirmPassword"
+                    name="confirmPassword" required class="CheckPassword" placeholder="Confirm Password">
+                <span id="confirmPasswordError" class="error"></span>
+                <button type="submit" class="RegisterButton">Create</button>
+                <a class="HaveAccount">Уже есть аккаунт?</a>
+                <button class="LoginButton" onclick="window.location='file:///C:/Users/user/Desktop/WebGuide/WebGuide-Login/WebGuide-Login.html'">Login</button>
+            </div>
+            </div>
+            		
+	</div>
+</form>
+<script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let username = document.getElementById('username').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+            let message = document.getElementById('message');
+            let passwordError = document.getElementById('passwordError');
+            let confirmPasswordError = document.getElementById('confirmPasswordError');
+
+            let passwordValid = validatePassword(password);
+            if (!passwordValid) {
+                passwordError.textContent = 'Password does not meet the requirements.';
+                return;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = 'Passwords do not match!';
+                return;
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+
+            // Here you can add code to send the form data to the server
+
+            message.style.color = 'green';
+            message.textContent = 'Signup successful!';
+        });
+
+        document.getElementById('password').addEventListener('focus', function () {
+            document.getElementById('passwordHint').style.display = 'block';
+        });
+
+        document.getElementById('password').addEventListener('blur', function () {
+            document.getElementById('passwordHint').style.display = 'none';
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            let password = this.value;
+            let passwordStrength = document.getElementById('passwordStrength');
+            let strength = getPasswordStrength(password);
+
+            passwordStrength.innerHTML = ''; // Clear previous strength bars
+            if (strength) {
+                let strengthBar = document.createElement('div');
+                strengthBar.className = strength;
+                passwordStrength.appendChild(strengthBar);
+            }
+        });
+
+        function validatePassword(password) {
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            return regex.test(password);
+        }
+        
+        
+    </script>
+</body>
+</html>
